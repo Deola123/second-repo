@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+div#main{
+    padding: 30px;
+    border: none;
+    box-shadow: 5px 2px 4px 5px grey;
+    box-sizing: border-box;
+    background: fixed rgb(112, 99, 78);
+    color: rgb(252, 242, 224);
+    gap: 10px;
+}
+button{
+    border: none;
+    border-radius: 4px;
+    padding: 5px ;
+    background-color:rgb(45, 163, 147);
+    margin: 2px ;
+    width: max-content;
+}
+button.btn{
+    background-color:rgb(207, 127, 23) ;
+    font-weight: bold;
+}
+div.todo{
+    margin: 10px;
+    box-sizing: border-box;
+    background-color: rgb(223, 181, 118);
+    padding: 10px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: max-content 1fr max-content max-content;
+}
+button#clear-btn{
+    width: 60%;
+    height: 40px;
+}
