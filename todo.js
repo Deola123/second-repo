@@ -8,11 +8,13 @@ todoArr = savedItem || []
 function render(){
     let todoList = todoArr.map(todo =>`
         <div class="todo">
-            <input type="checkbox" id=${todo.id} ${todo.isCompleted ? "checked": ""} 
-            onclick="updateCheckbox(id)">
-            <label for=${todo.id}>${todo.text}</label>
-            <button  id=${todo.id} onclick ="deleteBtn(id)" >delete</button>
-            <button id=${todo.id} onclick="editBtn(id)">edit</button>
+            <input data-index="${todo.id}" type="checkbox" id="checkbox-${todo.id}" ${todo.isCompleted ? "checked": ""} 
+            onclick="updateCheckbox()" class="checkbox">
+            <label for="checkbox-${todo.id}">${todo.text}</label>
+            <button data-index="${todo.id}" id="delete btn-${todo.id}" onclick ="deleteBtn()" 
+            class="js-button">Delete</button>
+            <button data-index="${todo.id}"id="edit btn-${todo.id}" onclick="editBtn(id)"
+            class="js-button">Edit</button>
         </div>
     `)
     todoContainer.innerHTML = todoList.join(" ")
@@ -25,21 +27,27 @@ createBtn.addEventListener("click", function(){
     render()
     createInput.value = ""
 })
-function updateCheckbox(id){
+function updateCheckbox(){
+    console.log(event.target.dataset.index)
+    id = event.target.dataset.index
     oldTodo = todoArr[id]
     updatedTodo = {text:oldTodo.text, isCompleted:!oldTodo.isCompleted, id:oldTodo.id}
     todoArr[id] = updatedTodo
     console.log(todoArr[id],todoArr)
     render()
 }
-function deleteBtn(id){
+function deleteBtn(){
+    id = event.target.dataset.index
+    console.log(id)
     let dlt = todoArr.filter(todo => todo.id != id)
     todoArr = dlt.map((todo, i) => ({...todo, id:i}))
     render()
 }
-function editBtn(id){
+function editBtn(){
+    id = event.target.dataset.index
+    console.log(id)
     createInput.value = todoArr[id].text
-    deleteBtn(id)
+    deleteBtn()
 }
 clearBtn.addEventListener("click",function(){
     todoArr = []
@@ -47,3 +55,4 @@ clearBtn.addEventListener("click",function(){
     render()
 
 })
+render()
