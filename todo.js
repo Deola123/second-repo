@@ -4,7 +4,7 @@ const createInput = document.querySelector("#create-input")
 const createBtn = document.querySelector("#create-btn")
 const clearBtn = document.querySelector("#clear-btn")
 let savedItem = JSON.parse(localStorage.getItem("todo"))
-todoArr = savedItem
+todoArr = savedItem || []
 function render(){
     let todoList = todoArr.map(todo =>`
         <div class="todo">
