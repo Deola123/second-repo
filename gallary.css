@@ -1,0 +1,25 @@
+body{
+    justify-content: center;
+    display: flex;
+}
+div.container{
+    height: 500px;
+    width: 700px;
+}
+div.multiple-img{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: 100%;
+    height: 30%;
+    cursor: pointer;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+div.big-img{
+    box-sizing: border-box;
+    height: 100%;
+}
