@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="display">0</div>
+    <div class="btn-container">
+       <div id="numbers">
+            <button class="button" onclick="numbers(9)" >9</button>
+            <button class="button" onclick="numbers(8)" >8</button>
+            <button class="button" onclick="numbers(7)" >7</button>
+            <button class="button" onclick="numbers(6)" >6</button>
+            <button class="button" onclick="numbers(5)" >5</button>
+            <button class="button" onclick="numbers(4)" >4</button>
+            <button class="button" onclick="numbers(3)" >3</button>
+            <button class="button" onclick="numbers(2)" >2</button>
+            <button class="button" onclick="numbers(1)" >1</button>
+            <button class="button" onclick="equation()">=</button>
+            <button class="button" onclick="numbers(0)" >0</button>
+            <button class="button" onclick="decimal()" >.</button>
+            
+        </div>
+        <div class="oprator">
+            <button class="button" id="add" onclick="calculate('+')">+</button>
+            <button class="button" id="subtract" onclick="calculate('-')">-</button>
+            <button class="button" id="multiply" onclick="calculate('*')">*</button>
+            <button class="button" id="divide" onclick="calculate('/')">/</button>
+            
+        </div>
+        <div class="del">
+            <button class="button" onclick="clr()">clr</button>
+            <button class="button" onclick="del()">del</button>
+        </div>
+    </div>
+    </div>
+    <script src="calculator.js"></script>
+</body>
+</html>
