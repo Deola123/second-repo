@@ -37,4 +37,5 @@ div#numbers{
     border-radius: 4px;
     background: rgb(61, 69, 71);
     color: white;
+    max-width: 360px;
 }

@@ -2,6 +2,7 @@
  let oldNum = display.textContent
  let operator = ''
  let startAffresh = false
+ const button = document.querySelector(".button")
  console.log(display.textContent,oldNum,'global')
 //  const answers = document.querySelector("#ans")
 //  const add = document.querySelector("#add")
@@ -10,9 +11,10 @@
 //  const divide = document.querySelector("#divide")
  function numbers(x){
     let displayed = display.textContent
-    if(displayed === "0" || startAffresh === true){
+    if(displayed === "0" || startAffresh === true ){
         display.textContent = x
-    }else{
+    }
+    else{
         display.textContent += x
     }
  } 
@@ -54,12 +56,17 @@ function calculate(y){
          ){
           operator = 'divide'
       }      
+     
+}
+function reset(){
+  operator = ''
+  console.log("reset")
 }
 function equate(){
-   startAffresh = true
+    startAffresh = false  
    if(operator === 'add'){
       newNum = display.textContent
-      answer = Math.floor(oldNum) + Math.floor(newNum)
+      answer = parseFloat(oldNum) + parseFloat(newNum)
       display.textContent = answer
    }
    else if(operator === 'subtract'){
@@ -77,9 +84,14 @@ function equate(){
       answer = parseFloat(oldNum) / parseFloat(newNum)
       display.textContent = answer
    }
+   else if(operator === 'equals' ){
+      display.textContent = answer
+   }
    else {
       return
    }
+   reset()
+   console.log("equate")
 }
  function del(){
    if(display.textContent != 0){
@@ -91,7 +103,37 @@ function equate(){
    }
   }  
  function equation(){
-   equate()
-   oldNum = 0
-    operator = ''
+equate()
+    operator = 'equals'
+    console.log("equals")
   }
+
+   
+addEventListener("keydown", (e) =>{
+   if (isNaN(Number(e.key))){ console.log("nan")}
+    else {numbers(Number(e.key))}
+ if( e.code === "Backspace" ){
+   del()
+}else if(e.code === "NumpadAdd"){
+   calculate('+')
+}
+else if(e.code === "NumpadSubtract"){
+   calculate('-')
+}
+else if(e.code === "NumpadMultiply"){
+   calculate('*')
+}
+else if(e.code === "NumpadDivide"){
+   calculate('/')
+}
+else if(e.code === "Enter"){
+   clr()
+}
+else if(e.code === "Equal"){
+   equation()
+}else{
+   console.log(e.key,Number(e.key),e.code,e)
+}
+   
+
+})
